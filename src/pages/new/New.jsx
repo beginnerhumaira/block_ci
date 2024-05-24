@@ -2,13 +2,11 @@ import "./new.scss"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined"
-import React, { useState, useMemo, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { appendProject,  } from "../../helper/firestore"
 import { auth } from "../../firebase"
 import { useNavigate } from "react-router-dom"
 import Web3 from "web3";
-
-
 import BlockCi from "../../build/BlockCi.json";
 
 const New = ({ inputs, title }) => {
@@ -88,6 +86,11 @@ const New = ({ inputs, title }) => {
     e.preventDefault();
 
     getDonationsForCampaign(campaignIdToRetrieve)
+    // Check if start date is after end date
+    if (new Date(formData.startdate) > new Date(formData.enddate)) {
+      alert("End date should be after start date");
+      return;
+  }
 
     try {
       // Check if any field is empty
@@ -151,6 +154,7 @@ const New = ({ inputs, title }) => {
         otherdetails: "",
       });
       navigate("/projects");
+      
     } catch (error) {
       console.error(error);
     }
@@ -163,12 +167,12 @@ const New = ({ inputs, title }) => {
       Organizer: ${organizer}
       Title: ${title}
       Goal Amount: ${goalAmount}`)
+  
   }
 
   // listen for CampaignCreated event
   useEffect(() => {
     const listenToCampaignCreated = async () => {
-      console.log(donationContract)
       try {
         if (!donationContract) {
           console.log("Donation contract is not initialized yet")
@@ -184,9 +188,11 @@ const New = ({ inputs, title }) => {
           })
           .on("error", (error) => {
             console.error("Error listening for CampaignCreated event:", error)
+            alert("Error listening for CampaignCreated event:", error)
           })
       } catch (error) {
         console.error("Error setting up CampaignCreated listener:", error)
+        alert("Error setting up CampaignCreated listener:", error)
       }
     }
 

@@ -5,8 +5,8 @@ import "./profile.scss"
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
 import { storage, auth } from "../../firebase"
 import { getProjects, updateOrganization } from "../../helper/firestore"
-import Navbar from "../../components/navbar/Navbar"
-import Sidebar from "../../components/sidebar/Sidebar"
+
+
 const Profile = () => {
   const [organizationName, setOrganizationName] = useState("")
   const [description, setDescription] = useState("")
