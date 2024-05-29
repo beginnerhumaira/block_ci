@@ -19,6 +19,7 @@ const Signup = () => {
           const user = userCredential.user;
           console.log(user);
           setSignUpSuccess(true);
+          alert("Sign up Successful!")
           navigate("/login");
         })
        .catch((error) => {
@@ -29,6 +30,7 @@ const Signup = () => {
         });
     } catch (error) {
       console.error("Error signing up:", error);
+      alert('Error signing up please try again')
     }
   };
 
@@ -36,8 +38,8 @@ const Signup = () => {
     <div className="signup-container">
       {signUpSuccess && (
         <div className="signup-success">
-          <h2>Sign Up Successful!</h2>
-          <p>Welcome to BlockCi! Let's save our donations</p>
+          {/* <h2>Sign Up Successful!</h2>
+          <p>Welcome to BlockCi! Let's save our donations</p> */}
         </div>
       )}
       <div className="signup-box">

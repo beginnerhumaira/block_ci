@@ -14,7 +14,7 @@ const Featured = () => {
       </div>
       <div className="bottom">
         <div className="featuredChart">
-          <CircularProgressbar value={65} text={"65%"}  strokeWidth={5} 
+          <CircularProgressbar value={65} text={"10%"}  strokeWidth={5} 
           styles={{
             path: {
               stroke: "#E6B8A3",
@@ -29,7 +29,7 @@ const Featured = () => {
           }} />
         </div>
         <p className="title">Total Donations recieved today</p>
-        <p className="amount">$320</p>
+        <p className="amount">$0</p>
         <p className="desc">
           Previous transactions processing. Last payments may not be included.
         </p>

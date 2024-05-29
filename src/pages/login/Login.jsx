@@ -19,23 +19,28 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           setLoginStatus("success");
+          alert('Login Successful!')
           navigate("/dashboard");
         })
        .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage);
+          alert('Wrong credentials')
           setLoginStatus(errorCode)
           if (errorCode === "auth/wrong-password") {
             setLoginStatus("wrong-password");
+            alert('Wrong credentials')
           } else if (errorCode === "auth/user-not-found") {
             setLoginStatus("user-not-found");
+            alert('User not found,please sign up!')
           }
           (alert(loginStatus))
         });
     } catch (error) {
       console.error("Error logging in:", error);
       setLoginStatus(error)
+      alert('Error logging in, please recheck your credentials')
       
     }
     

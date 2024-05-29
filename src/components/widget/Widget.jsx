@@ -8,11 +8,13 @@ import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutl
 
 
 const Widget = ({ type }) => {
+  
+
   let data;
 
   //temporary
-  const amount = 100;
-  const diff = 18;
+  const amount = 17;
+  const diff = 10;
 
   switch (type) {
     case "user":
@@ -31,6 +33,7 @@ const Widget = ({ type }) => {
         ),
       };
       break;
+      
     case "Project":
       data = {
         title: "PROJECTS",

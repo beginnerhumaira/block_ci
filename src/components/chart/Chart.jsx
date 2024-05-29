@@ -10,13 +10,13 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "Mon", Total: 1200 },
-  { name: "Tues", Total: 2100 },
-  { name: "Wed", Total: 800 },
-  { name: "Thurs", Total: 1600 },
-  { name: "Fri", Total: 900 },
-  { name: "Sat", Total: 1700 },
-  {name: "Sun",Total: 900},
+  { name: "Mon", Total: 920 },
+  { name: "Tues", Total: 460 },
+  { name: "Wed", Total: 300 },
+  { name: "Thurs", Total: 800 },
+  { name: "Fri", Total: 450 },
+  { name: "Sat", Total: 0 },
+  {name: "Sun",Total: 0},
 ];
 
 const Chart = ({ aspect, title }) => {
